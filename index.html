@@ -6,14 +6,30 @@
   <title>colton is a virgin</title>
   <link rel="stylesheet" type="text/css" href="style.css" />
   <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
-<nav class="flex-container">
-  <span><a href="#title">Scores</a></span>
-  <span><a href="#remaining-girls">Who's Still In</a></span>
-  <span><a href="#gone-girls">Who Got Out</a></span>
+
+<div class="navbar flex-container">
+<img src="images/rose-header.png">
+<nav>
+  <a href="#title">Scores</a>
+  <a href="#remaining-girls">Who's Still In</a>
+  <a href="#gone-girls">Who Got Out</a>
+  <div class="dropdown">
+    <span class="dropbtn">Filter</span>
+    <div class="dropdown-content">
+      <span id="filterMat">Mat</span>
+      <span id="filterWilliam">William</span>
+      <span id="filterNell">Nell</span>
+      <span id="filterErika">Erika</span>
+      <span id="filterKennedy">Kennedy</span>
+      <span id="filterRejected">Rejected</span>
+    </div>
+  </div>
 </nav>
-  
+</div>
 
 <div class="main">
   <div id="header" class="flex-container">
@@ -32,7 +48,7 @@
       </div>
     </div>
   
-    <div id="title" class="flex-container">
+    <div id="title" class="flex-container colton-background">
       <div class="content">
         <h1>Fantasy Bachelor</h1>
       </div>
@@ -49,7 +65,7 @@
       </div>
       <div class="score">
         <h3>Rejected</h3>
-        <h3>3</h3>
+        <h3>2</h3>
       </div>
     </div>
   </div>
@@ -57,88 +73,217 @@
   <div id="remaining-girls">
     <h2>Who's Still In?</h2>
         <div class="flex-container girls">
-          <div class="girl">
-            <img src="images/alexB.jpg" />
-            <span class="name">Alex B</span>
-            <span>Dog Rescuer</span>
-            <span>William's Girl</span>
-          </div>
-          <div class="girl">
-            <img src="images/alexD.jpg">
-            <span class="name">Alex D</span>
-            <span>Sloth</span>
-            <span>Rejected Girl</span>
-          </div>
-          <div class="girl">
-            <img src="images/angelique.jpg">
-            <span class="name">Angelique</span>
-            <span>Marketing Salesperson</span>
-            <span>Rejected Girl</span>
-          </div>
-          <div class="girl">
-            <img src="images/annie.jpg">
-            <span class="name">Annie</span>
-            <span>Financial Associate</span>
-            <span>Kennedy's Girl</span>
-          </div>
-          <div class="girl">
+
+
+
+
+          <div class="girl kennedy">
             <img src="images/bri.jpg">
             <span class="name">Bri</span>
-            <span>Model</span>
-            <span>Kennedy's Girl</span>
+            <span>Model, Mate</span>
+            <span>Kennedy's</span>
           </div>
-          <div class="girl">
+          <div class="girl kennedy">
             <img src="images/caelynn.jpg">
             <span class="name">Caelynn</span>
-            <span>Miss NC 2018</span>
-            <span>Kennedy's Girl</span>
+            <span>Miss NC 2k18</span>
+            <span>Kennedy's</span>
           </div>
-          <div class="girl">
+          <div class="girl mat">
             <img src="images/caitlin.jpg">
             <span class="name">Caitlin</span>
             <span>Realtor</span>
-            <span>Mat's Girl</span>
+            <span>Mat's</span>
           </div>
-          <div class="girl">
+          <div class="girl mat">
             <img src="images/cassie.jpg">
             <span class="name">Cassie</span>
             <span>Speech Pathologist</span>
-            <span>Mat's Girl</span>
+            <span>Mat's</span>
           </div>
-          <div class="girl">
+          <div class="girl erika">
             <img src="images/catherine.jpg">
             <span class="name">Catherine</span>
             <span>DJ</span>
-            <span>Erika's Girl</span>
+            <span>Erika's</span>
           </div>
-          <div class="girl">
+          <div class="girl mat">
             <img src="images/courtney.jpg">
             <span class="name">Courtney</span>
             <span>Caterer</span>
-            <span>Mat's Girl</span>
+            <span>Mat's</span>
           </div>
-
-
-
+          <div class="girl nell">
+            <img src="images/demi.jpg">
+            <span class="name">Demi</span>
+            <span>Interior Decorator</span>
+            <span>Nell's</span>
+          </div>
+          <div class="girl william">
+            <img src="images/elyse.jpg">
+            <span class="name">Elyse</span>
+            <span>Makeup Artist</span>
+            <span>William's</span>
+          </div>
+          <div class="girl kennedy">
+            <img src="images/hannahB.jpg">
+            <span class="name">Hannah B</span>
+            <span>Miss Alabama 2k18</span>
+            <span>Kennedy's</span>
+          </div>
+          <div class="girl erika">
+            <img src="images/hannahG.jpg">
+            <span class="name">Hannah G</span>
+            <span>Content Creator</span>
+            <span>Erika's</span>
+          </div>
+          <div class="girl erika">
+            <img src="images/heather.jpg">
+            <span class="name">Heather</span>
+            <span>Never Been Kissed</span>
+            <span>Erika's</span>
+          </div>
+          <div class="girl william">
+            <img src="images/katie.jpg">
+            <span class="name">Katie</span>
+            <span>Medical Sales Rep</span>
+            <span>William's</span>
+          </div>
+          <div class="girl erika">
+            <img src="images/kirpa.jpg">
+            <span class="name">Kirpa</span>
+            <span>Dental Hygienist</span>
+            <span>Erika's</span>
+          </div>
+          <div class="girl nell">
+            <img src="images/nicole.jpg">
+            <span class="name">Nicole</span>
+            <span>Social Media Coordinator</span>
+            <span>Nell's</span>
+          </div>
+          <div class="girl rejected">
+            <img src="images/nina.jpg">
+            <span class="name">Nina</span>
+            <span>Sales Account Manager</span>
+            <span>Rejected</span>
+          </div>
+          <div class="girl william">
+            <img src="images/onyeka.jpg">
+            <span class="name">Onyeka</span>
+            <span>Likes Cheez-Its</span>
+            <span>William's</span>
+          </div>
+          <div class="girl mat">
+            <img src="images/sydney.jpg">
+            <span class="name">Sydney</span>
+            <span>NBA Dancer</span>
+            <span>Mat's</span>
+          </div>
+          <div class="girl nell">
+            <img src="images/tayshia.jpg">
+            <span class="name">Tayshia</span>
+            <span>Phlebotomist</span>
+            <span>Nell's</span>
+          </div>
+          <div class="girl rejected">
+            <img src="images/tracy.jpg">
+            <span class="name">Tracy</span>
+            <span>Wardrobe Stylist</span>
+            <span>Rejected</span>
+          </div>
         </div>
   </div>
   <div id="gone-girls">
     <h2 class="gone-title">Who Got Out</h2>
-    <div id="week-one">
-      <h2>Week 1</h2>
+    <div id="week-two" class="week">
+      <h2>Week 2</h2>
       <div class="colton-looks">
-        <img class="colton-right" src="images/colton-look-right.jpg">
+        <img class="colton-looks-img" src="images/colton-look-right.jpg">
         <div class="flex-container girls">
-          <div class="girl">
-            <img src="images/demi.jpg">
-            <span class="name">Demi</span>
-            <span>Interior Decorator</span>
-            <span>Nell's Girl</span>
+
+          <div class="girl william">
+            <img src="images/alexB.jpg" />
+            <span class="name">Alex B</span>
+            <span>Dog Rescuer</span>
+            <span>William's</span>
+          </div>
+          <div class="girl rejected">
+            <img src="images/angelique.jpg">
+            <span class="name">Angelique</span>
+            <span>Marketing Salesperson</span>
+            <span>Rejected</span>
+          </div>
+          <div class="girl kennedy">
+            <img src="images/annie.jpg">
+            <span class="name">Annie</span>
+            <span>Financial Associate</span>
+            <span>Kennedy's</span>
+          </div>
+          <div class="girl nell">
+            <img src="images/erika.jpg">
+            <span class="name">The Nut</span>
+            <span>Recruiter</span>
+            <span>Nell's</span>
           </div>
         </div>
       </div>
     </div>
+    
+    <div id="week-one" class="week">
+      <h2>Week 1</h2>
+      <div class="colton-looks">
+        <div class="flex-container girls">
+          <div class="girl">
+            <img src="images/sloth.png">
+            <span class="name">Alex D</span>
+            <span>Sloth</span>
+            <span>No Selection</span>
+          </div>
+          <div class="girl">
+            <img src="images/devin.jpg">
+            <span class="name">Devin</span>
+            <span>Broadcast Journalist</span>
+            <span>No Selection</span>
+          </div>
+          <div class="girl">
+            <img src="images/erin.jpg">
+            <span class="name">Erin</span>
+            <span>Cinderella??</span>
+            <span>No Selection</span>
+          </div>
+          <div class="girl">
+            <img src="images/adrianne.jpg">
+            <span class="name">Adiranne (Jane)</span>
+            <span>Social Worker</span>
+            <span>No Selection</span>
+          </div>
+          <div class="girl">
+            <img src="images/laura.jpg">
+            <span class="name">Laura</span>
+            <span>Accountant</span>
+            <span>No Selection</span>
+          </div>
+          <div class="girl">
+            <img src="images/revian.jpg">
+            <span class="name">Revian</span>
+            <span>Nurse</span>
+            <span>No Selection</span>
+          </div>
+          <div class="girl">
+            <img src="images/tahzjuan.jpg">
+            <span class="name">Tahzjuan</span>
+            <span>Business Dev Associate</span>
+            <span>No Selection</span>
+          </div>
+        
+        </div>
+        <img class="colton-looks-img" src="images/colton-look-left.jpg">
+
+      </div>
+    </div>
   </div>
 </div>
+
+<script src="main.js"></script>
 </body>
 </html>
