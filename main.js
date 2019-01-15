@@ -9,6 +9,8 @@ const filterWeeks = () => {
   }
   
   noMoreGirls();
+  coltonShower();
+
   //Filter other weeks
   filterOtherWeeks();
 }
@@ -27,6 +29,14 @@ const noMoreGirls = () => {
     $("#title").addClass("chris-background");
   } else {
     $("#title").removeClass("chris-background");
+  }
+}
+
+const coltonShower = () => {
+  if ($("#filterWilliam").hasClass("filtered") && !$("#filterMat").hasClass("filtered") && !$("#filterNell").hasClass("filtered") && !$("#filterErika").hasClass("filtered") && !$("#filterKennedy").hasClass("filtered") && !$("#filterRejected").hasClass("filtered")) {
+    $("#title").addClass("colton-shower-background");
+  } else {
+    $("#title").removeClass("colton-shower-background");
   }
 }
 
