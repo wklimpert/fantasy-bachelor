@@ -1,5 +1,11 @@
 $(document).ready(function() {
 
+/*$("a").on("click", () => {
+  setTimeout(function() {
+    window.scrollTo(0, window.pageYOffset - 100);
+  }, 0);
+})*/
+
 const filterWeeks = () => {
   //Filter week one
   if ($(".dropdown-content span").hasClass("filtered")) {
