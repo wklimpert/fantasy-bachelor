@@ -98,9 +98,9 @@ nav a:hover {
 }
 
 /* Add a grey background color to dropdown links on hover */
-/*.dropdown-content span:hover {
+.dropdown-content span:hover {
   color: gray;
-}*/
+}
 
 /* Show the dropdown menu on hover */
 /*dropdown:hover .dropdown-content {
@@ -235,12 +235,26 @@ h3 {
   background-color: #00887A;
   border-radius: 10px;
   margin: 30px 10px;
+  overflow: hidden;
 }
 .girl img {
   object-fit: cover;
   width: 200px;
   height: 200px;
   border-radius: 10px 10px 0 0;
+  transition: transform 0.2s;
+  vertical-align: middle;
+}
+
+.img-container {
+  overflow: hidden;
+}
+.zoom {
+  transform: scale(1.2);
+}
+
+.girl:hover {
+  background-color: #33A394;
 }
 
 .girl span {

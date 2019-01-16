@@ -95,4 +95,13 @@ $("#filterRejected").on("click", () => {
   filterWeeks();
 })
 
+$(".girl").on("mouseover", event => {
+  $(event.currentTarget).find("img").addClass("zoom");
+})
+
+$(".girl").on("mouseleave", event => {
+  $(event.currentTarget).find("img").removeClass("zoom");
+})
+
+
 });
