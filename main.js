@@ -1,6 +1,9 @@
 $(document).ready(function() {
 $.event.addProp('dataTransfer');
 
+const mq = window.matchMedia( "(max-width: 1024px) ");
+
+
 /*$("a").on("click", () => {
   setTimeout(function() {
     window.scrollTo(0, window.pageYOffset - 100);
@@ -175,6 +178,8 @@ $("#remaining-girls").on("drop", function(event) {
   };
   
   adjustScores();
+  
+  $("#week-three-drop").sortDivs();
 });
 
 $("#remaining-girls").on("dragover", function(event) {
@@ -197,6 +202,36 @@ jQuery.fn.sortDivs = function sortDivs() {
     };
 }
 
+
+//For iPhones/iPads, no drag/drop - yes click to move
+if (mq.matches) {
+  function moveToWeekThree (event) {
+    $("#week-three").show();
+    var element = $(event.currentTarget).detach();
+    $("#week-three-drop").append(element);
+    $("#week-three-drop").sortDivs();
+    
+    element.off("click", moveToWeekThree);
+    element.on("click", moveToRemaining);
+  };
+  
+  function moveToRemaining (event) {
+    var element = $(event.currentTarget).detach();
+    $("#remaining-drop").append(element);
+    $("#remaining-drop").sortDivs();
+    
+    element.off("click", moveToRemaining);
+    element.on("click", moveToWeekThree);
+    hideWeek();
+  }
+  
+  $("#remaining-drop").children().on("click", moveToWeekThree);
+  
+  $("#rose").on("click", function(event) {
+    $("#title").toggleClass("chris-background");
+  })
+ 
+}
 const ogMatScore = parseInt($("#matScore").text());
 const ogWilliamScore = parseInt($("#williamScore").text());
 const ogNellScore = parseInt($("#nellScore").text());
