@@ -90,7 +90,7 @@ nav a:hover {
 
 /* Links inside the dropdown */
 .dropdown-content span {
-  padding: 12px 16px;
+  padding: 20px 16px;
   text-decoration: none;
   display: inline-block;
   text-align: center;
@@ -125,7 +125,7 @@ nav a:hover {
   margin: 0;
 }
 
-#winning {
+.winning {
   background-color: #FFCCBC;
 }
 
@@ -194,6 +194,14 @@ h3 {
   background-attachment: scroll;
   background-size: auto 100%;
   background-position: center;
+}
+
+.sloth-background {
+  background-image: url(images/sloth-gif.gif);
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+  background-position: 30% 0%;
 }
 
 .content {
@@ -272,4 +280,8 @@ h3 {
 
 .week {
   padding-top: 50px;
+}
+
+#week-three {
+  display: none;
 }
