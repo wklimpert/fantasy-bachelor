@@ -12,100 +12,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
-<!--
-<script>
-
-
-//Drag and Drop Functionality
-
-const hideWeek = () => {
-  if ($("#week-three-drop").children().length === 0) {
-    $("#week-three").hide();
-  }
-}
-
-const allowDrop = event => {
-  event.preventDefault();
-  if (!event.target.classList.contains("drop-box")) {
-    event.dataTransfer.dropEffect = "none";
-  }
-}
-
-
-const drag = event => {
-  event.dataTransfer.setData("text", event.target.id);
-}
-
-const dropWeekThree = event => {
-  event.preventDefault();
-  let data = event.dataTransfer.getData("text");
-  document.getElementById("week-three").style.display = "block";
-  document.getElementById("week-three-drop").appendChild(document.getElementById(data));
-  
-  adjustScores();
-}
-
-const dropRemaining = event => {
-  event.preventDefault();
-  let data = event.dataTransfer.getData("text");
-  document.getElementById("remaining-drop").appendChild(document.getElementById(data));
-  hideWeek();
-
-   $("#remaining-drop").sortDivs();
-   
-   
-
-}
-
-jQuery.fn.sortDivs = function sortDivs() {
-    $("> div", this[0]).sort(dec_sort).appendTo(this[0]);
-    function dec_sort(a, b){ 
-      var contentA = $(a).attr("id").toUpperCase();
-      var contentB = $(b).attr("id").toUpperCase();
-      return contentA.localeCompare(contentB);
-    };
-}
-
-const ogMatScore = parseInt($("#matScore").text());
-const ogWilliamScore = parseInt($("#williamScore").text());
-const ogNellScore = parseInt($("#nellScore").text());
-const ogErikaScore = parseInt($("#erikaScore").text());
-const ogKennedyScore = parseInt($("#kennedyScore").text());
-const ogRejectedScore = parseInt($("#rejectedScore").text());
-
-const adjustScores = () => {
-  let matScore = 0;
-  let williamScore = 0;
-  let nellScore = 0;
-  let erikaScore = 0;
-  let kennedyScore = 0;
-  let rejectedScore = 0;
-  
-  $("#remaining-drop").find(".whose").each(function(index) {
-    let player = $(this).text();
-    
-    if (player === "Mat's") {
-      matScore ++;
-    } else if (player === "William's") {
-      williamScore ++;
-    } else if (player === "Nell's") {
-      nellScore ++;
-    } else if (player === "Erika's") {
-      erikaScore ++;
-    } else if (player === "Kennedy's") {
-      kennedyScore ++;
-    } else {
-      rejectedScore ++;
-    }
-  })
-  
-  $("#matScore").text("winner");
-}
-
-
-</script>
--->
-
 <body>
 
 <div class="navbar flex-container">
@@ -172,161 +78,145 @@ const adjustScores = () => {
   
   <div class="flex-container">
   
-  <!--
-  <div id="remaining-girls" class="drop-box" ondrop="dropWeekThree(event)" ondragover="allowDrop(event)">
-  -->
   <div id="remaining-girls" class="drop-box">
   
     <h2>Who's Still In?</h2>
         <div id="remaining-drop" class="flex-container girls">
 
-          <div id="bri" class="girl kennedy" draggable="true">
-            <div class="img-container">
-              <img src="images/bri.jpg">
-            </div>
-            <span class="name">Bri</span>
-            <span>Model, Mate</span>
-            <span class="whose">Kennedy's</span>
-          </div>
           <div id="caelynn" class="girl kennedy" draggable="true">
-            <div class="img-container">
-              <img src="images/caelynn.jpg">
+            <div class="img-container flex-container">
+              <img class="girl-img" src="images/caelynn.jpg">
+              <!--<div class="safe">Safe</div>-->
+              <img class="safe" src="images/rose-header.png">
             </div>
             <span class="name">Caelynn</span>
             <span>Miss NC 2k18</span>
             <span class="whose">Kennedy's</span>
           </div>
-          <div id="caitlin" class="girl mat" draggable="true">
-            <div class="img-container">
-              <img src="images/caitlin.jpg">
-            </div>
-            <span class="name">Caitlin</span>
-            <span>Realtor</span>
-            <span class="whose">Mat's</span>
-          </div>
+          
           <div id="cassie" class="girl mat" draggable="true">
-            <div class="img-container">
-              <img src="images/cassie.jpg">
+            <div class="img-container flex-container">
+              <img class="girl-img" src="images/cassie.jpg">
+              <img class="safe" src="images/rose-header.png">
             </div>
             <span class="name">Cassie</span>
             <span>Speech Pathologist</span>
             <span class="whose">Mat's</span>
           </div>
-          <div id="catherine" class="girl erika" draggable="true">
-            <div class="img-container">
-              <img src="images/catherine.jpg">
-            </div>
-            <span class="name">Catherine</span>
-            <span>DJ</span>
-            <span class="whose">Erika's</span>
-          </div>
+          
           <div id="courtney" class="girl mat" draggable="true">
-            <div class="img-container">
-              <img src="images/courtney.jpg">
+            <div class="img-container flex-container">
+              <img class="girl-img" src="images/courtney.jpg">
+              <img class="safe" src="images/rose-header.png">
             </div>
             <span class="name">Courtney</span>
             <span>Caterer</span>
             <span class="whose">Mat's</span>
           </div>
           <div id="demi" class="girl nell" draggable="true">
-            <div class="img-container">
-              <img src="images/demi.jpg">
+            <div class="img-container flex-container">
+              <img class="girl-img" src="images/demi.jpg">
+              <img class="safe" src="images/rose-header.png">
             </div>
             <span class="name">Demi</span>
             <span>Interior Decorator</span>
             <span class="whose">Nell's</span>
           </div>
           <div id="elyse" class="girl william" draggable="true">
-            <div class="img-container">
-              <img src="images/elyse.jpg">
+            <div class="img-container flex-container">
+              <img class="girl-img" src="images/elyse.jpg">
+              <img class="safe" src="images/rose-header.png">
             </div>
             <span class="name">Elyse</span>
             <span>Makeup Artist</span>
             <span class="whose">William's</span>
           </div>
           <div id="hannahB" class="girl kennedy" draggable="true">
-            <div class="img-container">
-              <img src="images/hannahB.jpg">
+            <div class="img-container flex-container">
+              <img class="girl-img" src="images/hannahB.jpg">
+              <img class="safe" src="images/rose-header.png">
             </div>
             <span class="name">Hannah B</span>
             <span>Miss Alabama 2k18</span>
             <span class="whose">Kennedy's</span>
           </div>
           <div id="hannahG" class="girl erika" draggable="true">
-            <div class="img-container">
-              <img src="images/hannahG.jpg">
+            <div class="img-container flex-container">
+              <img class="girl-img" src="images/hannahG.jpg">
+              <img class="safe" src="images/rose-header.png">
             </div>
             <span class="name">Hannah G</span>
             <span>Content Creator</span>
             <span class="whose">Erika's</span>
           </div>
           <div id="heather" class="girl erika" draggable="true">
-            <div class="img-container">
-              <img src="images/heather.jpg">
+            <div class="img-container flex-container">
+              <img class="girl-img" src="images/heather.jpg">
+              <img class="safe" src="images/rose-header.png">
             </div>
-            <span class="name">Heather</span>
+            <span class="name">Heath-Bar</span>
             <span>Never Been Kissed</span>
             <span class="whose">Erika's</span>
           </div>
           <div id="katie" class="girl william" draggable="true">
-            <div class="img-container">
-              <img src="images/katie.jpg">
+            <div class="img-container flex-container">
+              <img class="girl-img" src="images/katie.jpg">
+              <img class="safe" src="images/rose-header.png">
             </div>
             <span class="name">Katie</span>
             <span>Medical Sales Rep</span>
             <span class="whose">William's</span>
           </div>
           <div id="kirpa" class="girl erika" draggable="true">
-            <div class="img-container">
-              <img src="images/kirpa.jpg">
+            <div class="img-container flex-container">
+              <img class="girl-img" src="images/kirpa.jpg">
+              <img class="safe" src="images/rose-header.png">
             </div>
             <span class="name">Kirpa</span>
             <span>Dental Hygienist</span>
             <span class="whose">Erika's</span>
           </div>
           <div id="nicole" class="girl nell" draggable="true">
-            <div class="img-container">
-              <img src="images/nicole.jpg">
+            <div class="img-container flex-container">
+              <img class="girl-img" src="images/nicole.jpg">
+              <img class="safe" src="images/rose-header.png">
             </div>
             <span class="name">Nicole</span>
             <span>Social Media Coordinator</span>
             <span class="whose">Nell's</span>
           </div>
-          <div id="nina" class="girl rejected" draggable="true">
-            <div class="img-container">
-              <img src="images/nina.jpg">
-            </div>
-            <span class="name">Nina</span>
-            <span>Sales Account Manager</span>
-            <span class="whose">Rejected</span>
-          </div>
+          
           <div id="onyeka" class="girl william" draggable="true">
-            <div class="img-container">
-              <img src="images/onyeka.jpg">
+            <div class="img-container flex-container">
+              <img class="girl-img" src="images/onyeka.jpg">
+              <img class="safe" src="images/rose-header.png">
             </div>
             <span class="name">Onyeka</span>
             <span>Likes Cheez-Its</span>
             <span class="whose">William's</span>
           </div>
           <div id="sydney" class="girl mat" draggable="true">
-            <div class="img-container">
-              <img src="images/sydney.jpg">
+            <div class="img-container flex-container">
+              <img class="girl-img" src="images/sydney.jpg">
+              <img class="safe" src="images/rose-header.png">
             </div>
             <span class="name">Sydney</span>
             <span>NBA Dancer</span>
             <span class="whose">Mat's</span>
           </div>
           <div id="tayshia" class="girl nell" draggable="true">
-            <div class="img-container">
-              <img src="images/tayshia.jpg">
+            <div class="img-container flex-container">
+              <img class="girl-img" src="images/tayshia.jpg">
+              <img class="safe" src="images/rose-header.png">
             </div>
             <span class="name">Tayshia</span>
             <span>Phlebotomist</span>
             <span class="whose">Nell's</span>
           </div>
           <div id="tracy" class="girl rejected" draggable="true">
-            <div class="img-container">
-              <img src="images/tracy.jpg">
+            <div class="img-container flex-container">
+              <img class="girl-img" src="images/tracy.jpg">
+              <img class="safe" src="images/rose-header.png">
             </div>
             <span class="name">Tracy</span>
             <span>Wardrobe Stylist</span>
@@ -341,27 +231,63 @@ const adjustScores = () => {
   
   <div id="gone-girls">
     <h2 class="gone-title">Who Got Out</h2>
-    
-    <!--
-    <div id="week-three" class="week drop-box" ondrop="dropRemaining(event)" ondragover="allowDrop(event)" >
-    
-    -->
-    <div id="week-three" class="week drop-box">
-      <!--
-      <h2 class="drop-box" ondrop="dropRemaining(event)" ondragover="allowDrop(event)">Week 3</h2>
-      -->
-      <h2 class="drop-box">Week 3</h2>
+
+    <div id="week-four" class="week drop-box">
+      <h2 class="drop-box">Week 4</h2>
       
-      <!--
-      <div class="colton-looks drop-box" ondrop="dropRemaining(event)" ondragover="allowDrop(event)">
-      -->
       <div class="colton-looks drop-box">
-        <div id="week-three-drop" class="flex-container girls">
+        <img class="colton-looks-img" src="images/colton-look-right-2.jpg">
+
+        <div id="week-four-drop" class="flex-container girls">
         
+        </div>
+      </div>
+    </div>
+    
+    <div id="week-three" class="week">
+      <h2>Week 3</h2>
+      <div class="colton-looks">
+        <div class="flex-container girls">
+          <div id="bri" class="girl kennedy">
+            <div class="img-container">
+              <img class="girl-img" src="images/bri.jpg">
+            </div>
+            <span class="name">Bri</span>
+            <span>Model, Mate</span>
+            <span class="whose">Kennedy's</span>
+          </div>
+          
+          <div id="caitlin" class="girl mat">
+            <div class="img-container">
+              <img class="girl-img" src="images/caitlin.jpg">
+            </div>
+            <span class="name">Caitlin</span>
+            <span>Realtor</span>
+            <span class="whose">Mat's</span>
+          </div>
+          
+          <div id="catherine" class="girl erika">
+            <div class="img-container">
+              <img class="girl-img" src="images/catherine.jpg">
+            </div>
+            <span class="name">Catherine</span>
+            <span>DJ</span>
+            <span class="whose">Erika's</span>
+          </div>
+          
+          <div id="nina" class="girl rejected">
+            <div class="img-container">
+              <img class="girl-img" src="images/nina.jpg">
+            </div>
+            <span class="name">Nina</span>
+            <span>Sales Account Manager</span>
+            <span class="whose">Rejected</span>
+          </div>
+          
         </div>
         <img class="colton-looks-img" src="images/colton-look-left-2.jpg">
       </div>
-    </div>  
+    </div>
     
     <div id="week-two" class="week">
       <h2>Week 2</h2>
@@ -371,7 +297,7 @@ const adjustScores = () => {
 
           <div id="alexB" class="girl william">
             <div class="img-container">
-              <img src="images/alexB.jpg" />
+              <img class="girl-img" src="images/alexB.jpg" />
             </div>
             <span class="name">Alex B</span>
             <span>Dog Rescuer</span>
@@ -379,7 +305,7 @@ const adjustScores = () => {
           </div>
           <div id="angelique" class="girl rejected">
             <div class="img-container">
-              <img src="images/angelique.jpg">
+              <img class="girl-img" src="images/angelique.jpg">
             </div>
             <span class="name">Angelique</span>
             <span>Marketing Salesperson</span>
@@ -387,7 +313,7 @@ const adjustScores = () => {
           </div>
           <div id="annie" class="girl kennedy">
             <div class="img-container">
-              <img src="images/annie.jpg">
+              <img class="girl-img" src="images/annie.jpg">
             </div>
             <span class="name">Annie</span>
             <span>Financial Associate</span>
@@ -395,7 +321,7 @@ const adjustScores = () => {
           </div>
           <div id="erika" class="girl nell">
             <div class="img-container">
-              <img src="images/erika.jpg">
+              <img class="girl-img" src="images/erika.jpg">
             </div>
             <span class="name">The Nut</span>
             <span>Recruiter</span>
@@ -411,7 +337,7 @@ const adjustScores = () => {
         <div class="flex-container girls">
           <div id="alexD" class="girl">
             <div class="img-container">
-              <img src="images/sloth.png">
+              <img class="girl-img" src="images/sloth.png">
             </div>
             <span class="name">Alex D</span>
             <span>Sloth</span>
@@ -419,7 +345,7 @@ const adjustScores = () => {
           </div>
           <div id="devin" class="girl">
             <div class="img-container">
-              <img src="images/devin.jpg">
+              <img class="girl-img" src="images/devin.jpg">
             </div>
             <span class="name">Devin</span>
             <span>Broadcast Journalist</span>
@@ -427,7 +353,7 @@ const adjustScores = () => {
           </div>
           <div id="erin" class="girl">
             <div class="img-container">
-              <img src="images/erin.jpg">
+              <img class="girl-img" src="images/erin.jpg">
             </div>
             <span class="name">Erin</span>
             <span>Cinderella??</span>
@@ -435,7 +361,7 @@ const adjustScores = () => {
           </div>
           <div id="adrianne" class="girl">
             <div class="img-container">
-              <img src="images/adrianne.jpg">
+              <img class="girl-img" src="images/adrianne.jpg">
             </div>
             <span class="name">Adrianne (Jane)</span>
             <span>Social Worker</span>
@@ -443,7 +369,7 @@ const adjustScores = () => {
           </div>
           <div id="laura" class="girl">
             <div class="img-container">
-              <img src="images/laura.jpg">
+              <img class="girl-img" src="images/laura.jpg">
             </div>
             <span class="name">Laura</span>
             <span>Accountant</span>
@@ -451,7 +377,7 @@ const adjustScores = () => {
           </div>
           <div id="revian" class="girl">
             <div class="img-container">
-              <img src="images/revian.jpg">
+              <img class="girl-img" src="images/revian.jpg">
             </div>
             <span class="name">Revian</span>
             <span>Nurse</span>
@@ -459,7 +385,7 @@ const adjustScores = () => {
           </div>
           <div id="tahzjuan" class="girl">
             <div class="img-container">
-              <img src="images/tahzjuan.jpg">
+              <img class="girl-img" src="images/tahzjuan.jpg">
             </div>
             <span class="name">Tahzjuan</span>
             <span>Business Dev Associate</span>

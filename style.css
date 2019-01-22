@@ -245,7 +245,7 @@ h3 {
   margin: 30px 10px;
   overflow: hidden;
 }
-.girl img {
+.girl-img {
   object-fit: cover;
   width: 200px;
   height: 200px;
@@ -257,6 +257,20 @@ h3 {
 .img-container {
   overflow: hidden;
 }
+
+.safe {
+  position: absolute;
+  margin-top: 70px;
+  width: 300px;
+  height: 200px;
+  color: black;
+  font-size: 30px;
+  display: none;
+  transform: rotate(-125deg);
+  opacity: 0.8;
+}
+
+
 .zoom {
   transform: scale(1.2);
 }
@@ -282,11 +296,12 @@ h3 {
   padding-top: 50px;
 }
 
-#week-three {
+#week-four {
   display: none;
 }
 
 @media only screen and (max-width: 1024px) {
   body {
+    background-color: darkcyan;
   }
 }

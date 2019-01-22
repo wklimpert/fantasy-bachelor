@@ -27,15 +27,15 @@ const filterWeeks = () => {
   filterOtherWeeks();
 }
 
-
-//Filter function - removes picture of Colton in an empty week
 const filterOtherWeeks = () => {
-  if ($("#week-two .colton-looks .girls").children(":visible").length == 0) {
-    $("#week-two .colton-looks .colton-looks-img").hide();
-  } else {
-    $("#week-two .colton-looks .colton-looks-img").show();
-  }
-};
+  $(".colton-looks .girls").each(function( index ) {
+    if ($( this ).children(":visible").length == 0) {
+      $( this ).siblings().hide();
+    } else {
+      $( this ).siblings().show();
+    }
+  })
+}
 
 
 //Chris Easter Egg when everyone filtered out
@@ -103,6 +103,10 @@ $(".dropdown-content span").on("click", () => {
   filterWeeks();
 })
 
+$(".girl").on("click", () => {
+  $(event.currentTarget).find(".safe").toggle();
+})
+
 
 //Clicking on a name filters it out
 /*
@@ -117,7 +121,7 @@ $(".dropdown-content span").on("click", event => {
 
 //Zoom functionality
 $(".girl").on("mouseover", event => {
-  $(event.currentTarget).find("img").addClass("zoom");
+  $(event.currentTarget).find("img").first().addClass("zoom");
 })
 
 $(".girl").on("mouseleave", event => {
@@ -127,8 +131,8 @@ $(".girl").on("mouseleave", event => {
 //Drag and Drop Functionality
 
 const hideWeek = () => {
-  if ($("#week-three-drop").children().length === 0) {
-    $("#week-three").hide();
+  if ($("#week-four-drop").children().length === 0) {
+    $("#week-four").hide();
   }
 }
 
@@ -173,13 +177,13 @@ $("#remaining-girls").on("drop", function(event) {
   event.preventDefault();
   let data = event.dataTransfer.getData("text");
   if (data !== "rose") {
-    document.getElementById("week-three").style.display = "block";
-    document.getElementById("week-three-drop").appendChild(document.getElementById(data));
+    document.getElementById("week-four").style.display = "block";
+    document.getElementById("week-four-drop").appendChild(document.getElementById(data));
   };
   
   adjustScores();
   
-  $("#week-three-drop").sortDivs();
+  $("#week-four-drop").sortDivs();
 });
 
 $("#remaining-girls").on("dragover", function(event) {
@@ -204,14 +208,16 @@ jQuery.fn.sortDivs = function sortDivs() {
 
 
 //For iPhones/iPads, no drag/drop - yes click to move
+
+/*
 if (mq.matches) {
-  function moveToWeekThree (event) {
-    $("#week-three").show();
+  function moveToWeekFour (event) {
+    $("#week-four").show();
     var element = $(event.currentTarget).detach();
-    $("#week-three-drop").append(element);
-    $("#week-three-drop").sortDivs();
+    $("#week-four-drop").append(element);
+    $("#week-four-drop").sortDivs();
     
-    element.off("click", moveToWeekThree);
+    element.off("click", moveToWeekFour);
     element.on("click", moveToRemaining);
   };
   
@@ -221,17 +227,20 @@ if (mq.matches) {
     $("#remaining-drop").sortDivs();
     
     element.off("click", moveToRemaining);
-    element.on("click", moveToWeekThree);
+    element.on("click", moveToWeekFour);
     hideWeek();
   }
   
-  $("#remaining-drop").children().on("click", moveToWeekThree);
+  $("#remaining-drop").children().on("click", moveToWeekFour);
   
   $("#rose").on("click", function(event) {
     $("#title").toggleClass("chris-background");
   })
  
 }
+
+*/
+
 const ogMatScore = parseInt($("#matScore").text());
 const ogWilliamScore = parseInt($("#williamScore").text());
 const ogNellScore = parseInt($("#nellScore").text());
@@ -294,7 +303,7 @@ const adjustScores = () => {
   let kennedyScore = 0;
   let rejectedScore = 0;
   
-  if ($("#week-three-drop").children().length !== 0) {
+  if ($("#week-four-drop").children().length !== 0) {
       $("#remaining-drop").find(".whose").each(function(index) {
         let player = $(this).text();
 
